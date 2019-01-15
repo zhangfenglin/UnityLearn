@@ -20,22 +20,7 @@ public class UnitySDKTest : MonoBehaviour {
 	}
 
     void OnClick() {
-        Debug.Log("------------------------");
-
-        AndroidJavaClass activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaClass>("currentActivity");
-        activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
-            new AndroidJavaObject("android.app.DatePickerDialog", activity, new DateCallback(), selectedDate.Year, selectedDate.Month - 1, selectedDate.Day).Call("show");
-        }));
+        UnitySDK.Instance().Log("UnitySDK", String.Format("current time is {0}", DateTime.Now.ToLongTimeString()));
     }
 
-    private static DateTime selectedDate = DateTime.Now;
-
-    class DateCallback : AndroidJavaProxy {
-
-        public DateCallback() : base("android.app.DatePickerDialog$OnDataSetListener") {}
-
-        void onDateSet(AndroidJavaObject view, int year, int monthOfYear, int dayOfMonth) {
-            selectedDate = new DateTime(year, monthOfYear + 1, dayOfMonth);
-        }
-    }
 }
