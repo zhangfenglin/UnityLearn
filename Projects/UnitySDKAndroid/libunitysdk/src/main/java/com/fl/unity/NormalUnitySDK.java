@@ -1,6 +1,10 @@
 package com.fl.unity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+
+import com.fl.activity.LoginActivity;
 
 public class NormalUnitySDK {
     private static final String TAG = "com.lib.unity";
@@ -22,5 +26,9 @@ public class NormalUnitySDK {
         if (this.eventLog != null) {
             this.eventLog.log(tag, msg);
         }
+    }
+
+    public void startLogin(Context context) {
+        context.startActivity(new Intent(context, LoginActivity.class));
     }
 }
