@@ -18,5 +18,9 @@ namespace Lib.Unity {
             mCore = new SDKCore();
             mCore.Init();
         }
+
+        public void Log(string tag, string msg) {
+            mCore.Log(tag, msg);
+        }
     }
 }
