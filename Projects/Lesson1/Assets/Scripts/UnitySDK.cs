@@ -22,5 +22,10 @@ namespace Lib.Unity {
         public void Log(string tag, string msg) {
             mCore.Log(tag, msg);
         }
+
+        public void StartLogin()
+        {
+            mCore.StartLogin();
+        }
     }
 }

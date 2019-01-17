@@ -28,7 +28,9 @@ public class NormalUnitySDK {
         }
     }
 
-    public void startLogin(Context context) {
-        context.startActivity(new Intent(context, LoginActivity.class));
+    public void startLogin(Context context, ILoginCallback callback) {
+        LoginActivity.setCallback(callback);
+        Intent intent = new Intent(context, LoginActivity.class);
+        context.startActivity(intent);
     }
 }
